@@ -1,0 +1,6 @@
+{
+    "heroesUrl": "api/heroes",
+    "textfile": "assets/textfile.txt",
+    "localUrl": "http://127.0.0.1.xip.io/locations"
+  }
+  
