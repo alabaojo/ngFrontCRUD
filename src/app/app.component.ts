@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
-import { Config } from '../app/interface/config';
+import { Config } from '../app/interfaces/config';
 import { HttpConfigService } from '../app/services/http-config.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class AppComponent {
  // url : string = 'http://127.0.0.1.xip.io/locations';
     constructor(private configService: HttpConfigService) {}
 
-    showConfigResponse() {
+  showConfigResponse() {
       this.configService.getConfigResponse()
         // resp is of type `HttpResponse<Config>`
         .subscribe(resp => {
@@ -44,5 +44,6 @@ export class AppComponent {
           }   // error path
       );
     }
+
 }
 

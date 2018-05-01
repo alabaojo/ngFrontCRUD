@@ -4,8 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
-import { Config } from '../interface/config';
+import { Config } from '../interfaces/config';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable()
 export class HttpConfigService {
   // configUrl = 'assets/httpConfig.json';
@@ -19,7 +22,7 @@ constructor(private http: HttpClient) { }
 
 getConfig() {
   // now returns an Observable of Config
-  return this.http.get<Config>(this.configUrl);
+  return this.http.get<Config>(this.configUrl, httpOptions);
 }
 getConfigResponse(): Observable<HttpResponse<Config>> {
   return this.http.get<Config>(

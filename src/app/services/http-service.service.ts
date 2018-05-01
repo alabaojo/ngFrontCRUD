@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap, retry, } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
-import { Config } from '../interface/config';
+import { Config } from '../interfaces/config';
 
 @Injectable()
 export class HttpServiceService {
