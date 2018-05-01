@@ -16,8 +16,7 @@ import { HttpcrudComponent } from './components/httpcrud/httpcrud.component';
   declarations: [
     AppComponent,
     HttpConfigComponent,
-    DownloaderComponent,
-    HttpcrudComponent
+    HttpcrudComponent,
   ],
   imports: [
     BrowserModule,
