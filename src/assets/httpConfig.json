@@ -1,8 +1,0 @@
-{
-    "baseUrl": "https://jsonplaceholder.typicode.com",
-    "heroesUrl": "api/heroes",
-    "textfile": "assets/textfile.txt",
-    "localUrl": "http://127.0.0.1.xip.io/locations",
-    "postUri": "https://jsonplaceholder.typicode.com/posts/1"
-  }
-  

@@ -8,8 +8,8 @@ import { HttpCrudService } from '../../services/http-crud.service';
 import { stringify } from '@angular/compiler/src/util';
 
 
-const food = { 'id': 1, 'name': 'Donuts' };
-const post = { 'id': 1, 'title': 'isdunuts', 'body': 'is Keine Ahnung' };
+const inPost = { 'userId': 333, 'title': 'isdunuts', 'body': 'is Keine Ahnung' };
+const uri = '/posts';
 
 @Component({
   selector: 'app-httpcrud',
@@ -18,14 +18,14 @@ const post = { 'id': 1, 'title': 'isdunuts', 'body': 'is Keine Ahnung' };
 })
 
 export class HttpcrudComponent implements OnInit {
-  post: any;
+post: Post;
 
   constructor(private configService: HttpCrudService) { }
 
   ngOnInit() {}
 
-showConfig() {
-    this.configService.getConfig()
+showPost() {
+    this.configService.getItem(uri)
       .subscribe(
         data => {
           this.post = { ...data};
@@ -37,7 +37,8 @@ showConfig() {
     );
   }
 submitPost() {
-  this.configService.postData(post);
+  // this.configService.postItem(uri, inPost);
+  this.configService.postItem(uri, inPost);
 
 }
 

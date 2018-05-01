@@ -6,29 +6,24 @@ import { Post } from '../../app/interfaces/apiOne/post';
 import { User } from '../../app/interfaces/apiOne/user';
 
 // import { Config } from '../interfaces/config';
-const url = 'https://jsonplaceholder.typicode.com/posts';
+const baseUrl = 'https://jsonplaceholder.typicode.com';
 @Injectable()
 export class HttpCrudService {
   constructor(private http: HttpClient) { }
 
-  getConfig() {
+getItem<T>(uri: string) {
+  const url = baseUrl + uri;
     // now returns an Observable of Config
-    return this.http.get<any>(url);
+    return this.http.get<T>(url);
   }
-  filterItems(category: string, year: string): Observable<any[]> {
-    const httpHeaders = new HttpHeaders()
-                      .set('Accept', 'application/json');
-          return this.http.get<any[]>(url + '?category=' + category + '&year=' + year, {
-              headers: httpHeaders,
-              responseType: 'json'
-      });
-    }
 
-getConfigResponse(): Observable<HttpResponse<any>> {
-    return this.http.get<any>(
+getItemResponse<T>(uri: string): Observable<HttpResponse<T>> {
+  const url = baseUrl + uri;
+    return this.http.get<T>(
       url, {observe: 'response'});
   }
-  postData(inData: any) {
+  postItem<T>(uri: string, inData: any) {
+    const url = baseUrl + uri;
           this.http.post(url, inData).subscribe(
       res => {
         console.log(res);
@@ -37,5 +32,23 @@ getConfigResponse(): Observable<HttpResponse<any>> {
         console.log(err.error);
       }
     );
+  }
+  putItem<T>(uri: string, inData: any) {
+    const url = baseUrl + uri;
+    this.http
+      .put(url, inData, {
+        params: new HttpParams().set('id', '56784'),
+        headers: new HttpHeaders().set('Authorization', 'some-token')
+      })
+      .subscribe();
+  }
+  patchItem<T>(uri: string, inData: any) {
+    const url = baseUrl + uri;
+    this.http
+      .put(url, inData, {
+        params: new HttpParams().set('id', '56784'),
+        headers: new HttpHeaders().set('Authorization', 'some-token')
+      })
+      .subscribe();
   }
 }
