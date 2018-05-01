@@ -10,7 +10,10 @@ import { Config } from '../interface/config';
 export class HttpConfigService {
   // configUrl = 'assets/httpConfig.json';
   // configUrl = 'http://127.0.0.1.xip.io/locations';
-  configUrl = 'http://127.0.0.1:8000/locations/';
+  // configUrl = 'http://127.0.0.1:8000/locations/';
+  url1 = 'https://jsonplaceholder.typicode.com/users';
+
+  configUrl = this.url1;
   config: Config;
 constructor(private http: HttpClient) { }
 
